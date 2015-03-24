@@ -12,4 +12,9 @@ defmodule ExampleCrm.ContactsController do
     Repo.insert(contact)
     redirect conn, to: "/"
   end
+
+  def show(conn, %{"id"=>id}) do
+    contact = ExampleCrm.ContactQueries.by_id(id)
+    render conn, "show.html", contact: contact
+  end
 end

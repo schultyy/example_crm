@@ -16,7 +16,7 @@ defmodule ExampleCrm.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/contacts", ContactsController, only: [:new, :create]
+    resources "/contacts", ContactsController, only: [:new, :create, :show]
   end
 
   # Other scopes may use custom stacks.
