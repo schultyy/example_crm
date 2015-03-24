@@ -1,6 +1,5 @@
 defmodule ExampleCrm.ActivitiesController do
   use ExampleCrm.Web, :controller
-  import Timex
 
   plug :action
 
