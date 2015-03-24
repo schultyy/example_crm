@@ -1,1 +1,6 @@
 <h1>example crm</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="<%= contacts_path(@conn,:new)%>">new contact</a>
+  </div>
+</div>
