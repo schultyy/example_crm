@@ -4,3 +4,21 @@
     <a href="<%= contacts_path(@conn,:new)%>">new contact</a>
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <th>First name</th>
+        <th>Last name</th>
+      </thead>
+      <tbody>
+        <%= for contact <- @contacts do %>
+          <tr>
+            <td><%= contact.firstname %></td>
+            <td><%= contact.lastname %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

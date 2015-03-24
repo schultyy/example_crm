@@ -4,6 +4,7 @@ defmodule ExampleCrm.PageController do
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html"
+    contacts = ExampleCrm.ContactQueries.all_contacts
+    render conn, "index.html", contacts: contacts
   end
 end
