@@ -14,7 +14,8 @@ defmodule ExampleCrm.ContactsController do
   end
 
   def show(conn, %{"id"=>id}) do
-    contact = ExampleCrm.ContactQueries.by_id(id)
-    render conn, "show.html", contact: contact
+    contact = ExampleCrm.Repo.get(ExampleCrm.Contact, id)
+    activities = ExampleCrm.Repo.all Ecto.Model.assoc(contact, :activities)
+    render conn, "show.html", contact: contact, activities: activities
   end
 end

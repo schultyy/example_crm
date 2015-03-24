@@ -29,10 +29,12 @@
     <th>Notes</th>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+    <%= for activity <- @activities do %>
+      <tr>
+        <td><%=activity.time%></td>
+        <td><%=activity.title%></td>
+        <td><%=activity.notes%></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

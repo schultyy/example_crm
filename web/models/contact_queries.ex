@@ -7,10 +7,4 @@ defmodule ExampleCrm.ContactQueries do
     ExampleCrm.Repo.all(query)
   end
 
-  def by_id(contact_id) do
-    query = from c in ExampleCrm.Contact,
-              where: c.id == ^contact_id,
-              select: c
-    ExampleCrm.Repo.one(query)
-  end
 end

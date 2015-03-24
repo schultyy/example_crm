@@ -4,6 +4,6 @@ defmodule ExampleCrm.Contact do
   schema "contacts" do
     field :firstname, :string
     field :lastname, :string
-    has_many :activities, Activity
+    has_many :activities, ExampleCrm.Activity
   end
 end
