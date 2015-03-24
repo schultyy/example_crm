@@ -17,6 +17,7 @@ defmodule ExampleCrm.Router do
 
     get "/", PageController, :index
     resources "/contacts", ContactsController, only: [:new, :create, :show]
+    resources "/activities", ActivitiesController, only: [:create]
   end
 
   # Other scopes may use custom stacks.

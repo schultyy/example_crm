@@ -1,3 +1,38 @@
 <h1>Details</h1>
 <p><%=@contact.firstname%> <%=@contact.lastname%></p>
+<h3>Log your history here:</h3>
+<%= form_tag(activities_path(@conn, :create),method: :post, class: "form-horizontal") %>
+  <input type="hidden" name="contact_id" value="<%=@contact.id%>">
+  <div class="form-group">
+    <label for="time">When</label>
+    <input type="text" class="form-control" name="time" id="time">
+  </div>
 
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="title" id="title">
+  </div>
+
+  <div class="form-group">
+    <label for="notes">notes</label>
+    <input type="text" class="form-control" name="notes" id="notes">
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</form>
+<table>
+  <thead>
+    <th>When</th>
+    <th>What</th>
+    <th>Notes</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
