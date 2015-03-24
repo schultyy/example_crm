@@ -7,7 +7,9 @@ defmodule ExampleCrm.ContactsController do
     render conn, "new.html"
   end
 
-  def create(conn, _params) do
+  def create(conn, %{"firstname" => firstname, "lastname" => lastname}) do
+    contact = %ExampleCrm.Contact{firstname: firstname, lastname: lastname}
+    Repo.insert(contact)
     redirect conn, to: "/"
   end
 end
