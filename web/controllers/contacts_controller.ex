@@ -7,10 +7,14 @@ defmodule ExampleCrm.ContactsController do
     render conn, "new.html"
   end
 
-  def create(conn, %{"firstname" => firstname, "lastname" => lastname}) do
-    contact = %ExampleCrm.Contact{firstname: firstname, lastname: lastname}
-    Repo.insert(contact)
-    redirect conn, to: "/"
+  def create(conn, params) do
+    changeset = ExampleCrm.Contact.changeset(params, :create)
+    if changeset.valid? do
+      Repo.insert(changeset)
+      redirect conn, to: "/"
+    else
+      render conn, "new.html", errors: changeset.errors
+    end
   end
 
   def show(conn, %{"id"=>id}) do
