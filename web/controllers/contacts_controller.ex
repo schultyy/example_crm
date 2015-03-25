@@ -4,16 +4,17 @@ defmodule ExampleCrm.ContactsController do
   plug :action
 
   def new(conn, _params) do
-    render conn, "new.html"
+    contact = %ExampleCrm.Contact{}
+    render conn, "new.html",contact: contact
   end
 
-  def create(conn, params) do
-    changeset = ExampleCrm.Contact.changeset(params, :create)
+  def create(conn, %{"contact" => contact}) do
+    changeset = ExampleCrm.Contact.changeset(contact, :create)
     if changeset.valid? do
       Repo.insert(changeset)
       redirect conn, to: "/"
     else
-      render conn, "new.html", errors: changeset.errors
+      render conn, "new.html", contact: changeset.changes, errors: changeset.errors
     end
   end
 

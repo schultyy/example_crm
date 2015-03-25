@@ -9,8 +9,8 @@ defmodule ExampleCrm.Contact do
 
   def changeset(params, :create) do
     %ExampleCrm.Contact{}
-    |> cast(params, ~w(firstname), ~w(lastname))
-    |> validate_length(:firstname, min: 1)
-    |> validate_length(:lastname, min: 1)
+      |> cast(params, ~w(firstname lastname))
+      |> validate_length(:firstname, min: 1)
+      |> validate_length(:lastname, min: 1)
   end
 end
